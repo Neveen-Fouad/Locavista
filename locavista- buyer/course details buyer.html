@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>course details buyer</title>
+  <link rel="stylesheet" href="style/course details buyer.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style/all.min.css">
+  <link rel="stylesheet" href="./style/nav.css">
+  <link rel="stylesheet" href="style/nav buyer.css">
+  <link rel="stylesheet" href="style/footer.css">
+</head>
+<body>
+   <!-- Start Nav -->
+    <nav>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo Image">
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="buyer-home.html">Home</a></li>
+                <li><a href="products-Page.html">Products</a></li>
+                <li><a href="all courses.html">Courses</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <div class="search-nav">
+                <input type="search" placeholder="What are you looking for?">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="nav-icons">
+                <ul>
+                    <li><a href="wish-list.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li class="dropdown">
+                      <a href="#"><i class="fa-regular fa-user"></i></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="orders and requests buyer.html"> <i class="fa-solid fa-bag-shopping"></i> My Orders</a></li>
+                          <li><a href="my courses page.html"> <i class="fa-solid fa-graduation-cap"></i> My Courses</a></li>
+                          <li><a href="welcome-page.html" class="logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Nav -->
+
+  <div class="container">
+    <div class="product">
+      <div class="product-image">
+        <div class="placeholder"></div>
+      </div>
+      <div class="product-info">
+        <h2>Pottery: From Clay to Masterpiece</h2>
+        <div class="price">EGP 750.00</div>
+        <p>Learn the art of glazing to make beautiful ceramic pottery.</p>
+        <p class="duration"><strong>Total Duration:</strong> 1h</p>
+        <div class="buttons">
+          <button class="buy">Buy Now</button>
+          <button class="cart">Add to cart</button>
+          <a class="heart" href=""><img src="img/heart.png"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="description">
+      <h3>Description</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+      <ul>
+        <li>Point one about the workshop</li>
+        <li>Point two about materials</li>
+        <li>Point three about duration</li>
+      </ul>
+    </div>
+
+    <div class="reviews">
+      <h3>Reviews</h3>
+    <div id="reviews-list">
+      <div class="review">
+        <div class="review-header">
+            <strong>Mike Jonson</strong>
+            <div class="stars">★★★★★</div>
+        </div>
+        <p>Great class! Really enjoyed the experience.</p>
+         <span class="date">5-12-2024</span>
+      </div>
+
+      <div class="review">
+        <div class="review-header">
+        <strong>Mike Johnson</strong>
+        <div class="stars">★★★★☆</div>
+      </div>
+        <p>Loved the hands-on part.</p>
+        <span class="date">5-12-2024</span>
+        </div>
+      </div>
+    </div>
+      <div class="add-review">
+        <h4>Your Review</h4>
+        <input type="text" id="name" placeholder="Your Name">
+        <textarea rows="4" id="message" placeholder="Write your review"></textarea>
+         <div class="rating">
+           <span data-value="5">☆</span>
+           <span data-value="4">☆</span>
+           <span data-value="3">☆</span>
+           <span data-value="2">☆</span>
+            <span data-value="1">☆</span>
+         </div>
+
+        <button class="button-right" onclick="addReview()" >Submit Review</button>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Logo + tagline -->
+            <div class="footer-logo">
+                <img src="img/logo-footer.png" alt="LocaVista Logo">
+                <p>The home for authentic Egyptian handmade crafts</p>
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="buyer-home.html">Home</a></li>
+                    <li><a href="contact us.html">Contact us</a></li>
+                    <li><a href="landing.html#questions">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Social -->
+            <div class="social">
+                <h3>Social Media</h3>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Locavista. All rights reserved.
+        </div>
+    </footer>
+ 
+
+  <script>
+    document.querySelectorAll(".rating span").forEach(star => {
+  star.addEventListener("click", function () {
+    selectedRating = this.getAttribute("data-value");
+    document.querySelectorAll(".rating span").forEach(s => s.classList.remove("selected"));
+    this.classList.add("selected");
+    let prev = this.nextElementSibling;
+    while (prev) {
+      prev.classList.add("selected");
+      prev = prev.nextElementSibling;
+    }
+  });
+});
+    function addReview() {
+      let name = document.getElementById("name").value;
+      let message = document.getElementById("message").value;
+
+      if (name && message  && selectedRating > 0) {
+        let reviewList = document.getElementById("reviews-list");
+        let newReview = document.createElement("div");
+        newReview.classList.add("review");
+        let stars = "★".repeat(selectedRating) + "☆".repeat(5 - selectedRating);
+        newReview.innerHTML = `<div class="review-header"><h4>${name}</h4>
+        <div class="stars">${stars}</div></div>
+      <p>${message}</p>
+      <span class="date">${new Date().toLocaleDateString()}</span>`;
+        reviewList.appendChild(newReview);
+        document.getElementById("name").value = "";
+        document.getElementById("message").value = "";
+        selectedRating = 0;
+      } else {
+        alert("Please fill in all fields.");
+      }
+    }
+  </script>
+</body>
+</html>

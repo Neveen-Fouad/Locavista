@@ -1,0 +1,113 @@
+ @font-face {
+  font-family: 'ArgueDemo';
+  src: url('fonts/Arguedemo-w1PrZ.otf') format('opentype');
+}
+    
+ body {
+      margin: 0;
+      color: #333;
+      background-color: rgba(244, 244, 241, 1);
+      font-family: 'ArgueDemo', sans-serif;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 400;
+      color: rgba(45, 45, 45, 1);
+    }
+
+    p.description {
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+
+    .section> *{ grid-column: 2; }
+
+    .section {
+      padding: 60px;
+      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    table {
+      width: 1223px;
+      height: 691px;
+      border-collapse: collapse;
+      border: 1px solid #ddd; 
+    }
+
+    thead {
+      background: rgba(154, 154, 154, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+
+    th, td, tr {
+      text-align: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(206, 206, 206, 1);
+      border-right: none;        
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .product {
+      gap: 10px;
+      display: flex;
+      align-items: center;
+      border-bottom: none;
+      height: 112px;
+    }
+
+    .product img {
+      width: 60.377777099609375px;
+      height: 76px;
+      background:rgba(154, 154, 154, 1);
+      border-radius: 0.84px;
+      
+    }
+
+    .btn {
+      height: 38px;
+      width: 122px;
+      padding: 6px 14px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: 14px;
+      margin-right: 6px;
+      line-height: 140%;
+      font-family: 'ArgueDemo', sans-serif;
+    }
+
+    .btn-accept {
+      background: rgba(178, 255, 180, 1);
+      color: rgba(4, 145, 12, 1);
+    }
+
+    .btn-reject {
+      background: rgba(255, 220, 220, 1);
+      color: rgba(255, 0, 0, 1);
+    }
+    .color{
+      width: 20px;
+      height: 40px;
+      background-color:rgba(135, 100, 73, 1);
+      border-radius: 4px;
+    }
+    .container {
+       display: flex;
+       align-items: center;
+       gap: 10px;
+       margin: 8px 0 6px;
+       text-align: left;
+    }
+    .lft{
+        text-align: left;
+    }
+    
+

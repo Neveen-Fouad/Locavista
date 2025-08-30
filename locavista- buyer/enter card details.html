@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LocaVista – Billing</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style/all.min.css">
+  <link rel="stylesheet" href="./style/nav.css">
+  <link rel="stylesheet" href="style/nav buyer.css">
+  <link rel="stylesheet" href="style/footer.css">
+  <style>
+         @font-face {
+  font-family: 'ArgueDemo';
+  src: url('fonts/Arguedemo-w1PrZ.otf') format('opentype');
+}
+    :root{
+      --brand:#0b704f;         /* main green */
+      --brand-600:#095b40;
+      --beige:#e3d3bf;         /* navbar + footer bg */
+      --bg:#f3f5f1;            /* page background */
+      --card:#ffffff;          /* card bg */
+      --tab:#9ea2a2;           /* tabs line */
+      --muted:#6b7280;         /* text-muted */
+      --stroke:#e5e7eb;        /* borders */
+      --radius:14px;
+    }
+    
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; padding: 0%; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:#222; background:var(--bg);
+      font-family: 'ArgueDemo';
+    }
+    img{
+      box-sizing:content-box;
+    }
+    /* Main */
+    main{max-width:1100px; margin:40px auto; padding:0 20px}
+    .card{background:var(--card); border-radius:var(--radius); box-shadow:0 2px 14px rgba(0,0,0,.06); border:1px solid var(--stroke)}
+
+    /* Tabs */
+    .tabs{display:grid; grid-template-columns:1fr 1fr 1fr; background:var(--tab); color:#fff; border-top-left-radius:var(--radius); border-top-right-radius:var(--radius); overflow:hidden}
+    .tabs a{padding:14px 16px; text-align:center; text-decoration:none; color:#eee; font-weight:600}
+
+    label{
+      font-family: oxygen;
+      font-weight: 400;
+      font-size: 16px;
+    }
+    input{
+      background-color: #f4f4f1;
+    }
+    .body{padding:26px}
+
+    /* Form */
+    .grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    .full{grid-column:1/-1}
+
+    label{display:block; font-size:14px; color:#374151; margin:12px 0 6px}
+    input[type="text"],input[type="tel"],input[type="month"],input[type="search"],input[type="email"],input[type="password"]{
+      width:100%; padding:12px 14px; border-radius:10px; border:1px solid var(--stroke); background:#f4f4f1; font-size:15px;
+    }
+    input:focus{outline:3px solid rgba(11,112,79,.14); border-color:var(--brand)}
+
+    .checkbox{display:flex; align-items:center; gap:10px; margin-top:6px}
+
+    .btn{
+      display:inline-block; padding:12px 20px; background:var(--brand); color:#fff; border:none; border-radius:999px; font-weight:700; cursor:pointer; box-shadow:0 6px 14px rgba(11,112,79,.22);
+    }
+    .btn:hover{background:var(--brand-600)}
+
+    /* Popup (زي الكود اللي قبل كده بالظبط) */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup-content {
+      background: var(--card);
+      padding: 30px;
+      border-radius: var(--radius);
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      animation: fadeIn 0.3s ease;
+    }
+    .popup-content h2 {
+      font-family: cursive;
+      font-size: 26px;
+      margin: 14px 0;
+    }
+    .popup-content p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .check-icon {
+      font-size: 38px;
+      color: white;
+      background: var(--brand);
+      border-radius: 50%;
+      padding: 12px;
+      display: inline-block;
+    }
+    .popup-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .popup-buttons button {
+      padding: 10px 20px;
+      border: 1px solid var(--brand);
+      border-radius: 999px;
+      cursor: pointer;
+      background: white;
+      color: var(--brand);
+      font-weight: bold;
+    }
+    .popup-buttons .primary {
+      background: var(--brand);
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {transform: scale(0.9); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .links{display:none}
+      .search{width:100%}
+    }
+    @media (max-width: 720px){
+      .grid{grid-template-columns:1fr}
+      .fwrap{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 480px){
+      .tabs a{font-size:14px; padding:12px}
+      .fwrap{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  
+ <!-- Start Nav -->
+    <nav>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo Image">
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="buyer-home.html">Home</a></li>
+                <li><a href="products-Page.html">Products</a></li>
+                <li><a href="all courses.html">Courses</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <div class="search-nav">
+                <input type="search" placeholder="What are you looking for?">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="nav-icons">
+                <ul>
+                    <li><a href="wish-list.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li class="dropdown">
+                      <a href="#"><i class="fa-regular fa-user"></i></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="orders and requests buyer.html"> <i class="fa-solid fa-bag-shopping"></i> My Orders</a></li>
+                          <li><a href="my courses page.html"> <i class="fa-solid fa-graduation-cap"></i> My Courses</a></li>
+                          <li><a href="welcome-page.html" class="logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Nav -->
+
+
+  <!-- Main Card -->
+  <main>
+    <section class="card">
+      <div class="tabs">
+        <a class="is-active" href="#">Personal</a>
+        <a href="#">Billing</a>
+        <a href="#">Confirmation</a>
+      </div>
+      <div class="body">
+        <form class="grid" action="#" method="post" onsubmit="event.preventDefault(); openPopup();">
+          <div class="full">
+            <label for="name">Name On Card*</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+
+          <div class="full">
+            <label for="number">Card Number*</label>
+            <input id="number" name="number" type="tel" inputmode="numeric" autocomplete="cc-number" required />
+          </div>
+
+          <div>
+            <label for="valid">Valid Through*</label>
+            <input id="valid" name="valid" type="text" required />
+          </div>
+          <div>
+            <label for="cvv">CVV*</label>
+            <input id="cvv" name="cvv" type="tel" inputmode="numeric" required />
+          </div>
+
+          <div class="full checkbox">
+            <input id="save" type="checkbox" />
+            <label for="save" style="margin:0">Save As Default Payment Method</label>
+          </div>
+
+          <div class="full" style="margin-top:8px">
+            <button type="submit" class="btn">Boost My Product for One Month</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <div class="check-icon">✔</div>
+      <h2>Thank you!</h2>
+      <p>Your item is now active in premium spots across Locavista for the next 30 days. Get ready for more views and sales.</p>
+      <div class="popup-buttons">
+        <button class="primary" onclick="closePopup()">Go to Homepage</button>
+        <button onclick="closePopup()">Check Order Details</button>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Logo + tagline -->
+            <div class="footer-logo">
+                <img src="img/logo-footer.png" alt="LocaVista Logo">
+                <p>The home for authentic Egyptian handmade crafts</p>
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="buyer-home.html">Home</a></li>
+                    <li><a href="contact us.html">Contact us</a></li>
+                    <li><a href="landing.html#questions">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Social -->
+            <div class="social">
+                <h3>Social Media</h3>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Locavista. All rights reserved.
+        </div>
+    </footer>
+
+  <script>
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>

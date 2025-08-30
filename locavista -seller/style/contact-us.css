@@ -1,0 +1,197 @@
+@font-face{
+  font-family: Argue;
+  src: url("../fonts/Argue-DEMO.otf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+
+img{
+  box-sizing: content-box;
+}
+
+body{
+  font-family: Argue, sans-serif;
+  background:#f5f5f5;
+  color:#000;
+}
+/* Hero */
+.hero-text{
+  text-align:center;
+  margin:80px auto 40px;
+  max-width:1200px;
+  padding:0 20px;
+}
+
+.hero-text h1{
+  font-size:64px;
+  line-height:1.1;
+  margin:0 0 16px;
+}
+
+.hero-text p{
+  font-size:20px;
+  line-height:1.4;
+  max-width:1192px;
+  margin:0 auto;
+}
+
+/* Contact section */
+.contact-wrapper{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:50px 100px;
+}
+
+.info-card,.form-card{
+  background:#fff;
+  border:1px solid #A8A8A8;
+  box-shadow:0 1px 13px rgba(0,0,0,.05);
+  border-radius:4px;
+}
+
+.info-card{
+  width:340px;
+  padding:40px;
+  display:flex;
+  flex-direction:column;
+  gap:32px;
+}
+
+.info-block{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+
+.info-block .icon{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#876449;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+}
+
+.info-block h4{
+  font-size:16px;
+  margin:0 0 8px;
+}
+
+.info-block p{
+  font-size:14px;
+  line-height:21px;
+  margin:0 0 6px;
+}
+
+.info-card hr{
+  border:none;
+  border-top:1px solid rgba(0,0,0,.2);
+  margin:8px 0;
+}
+
+.form-card{
+  width:800px;
+  padding:40px 31px;
+}
+
+.form-card form{display:flex;flex-direction:column;gap:20px}
+
+.form-row{display:flex;gap:20px}
+
+.form-card input,
+.form-card textarea{
+  flex:1;
+  padding:12px;
+  border:1px solid #A8A8A8;
+  border-radius:4px;
+  background:#F5F5F5;
+  font-size:14px;
+}
+
+.form-card textarea{
+  height:207px;
+  resize:none;
+}
+
+.form-card button{
+  align-self:flex-end;
+  background:#876449;
+  color:#FAFAFA;
+  padding:16px 48px;
+  border:none;
+  border-radius:4px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+
+@media (max-width:1100px){
+  .contact-wrapper{flex-direction:column;padding:30px 20px}
+  .form-card{width:100%}
+  .info-card{width:100%}
+  .nav-links{display:none}
+}
+
+.form-card textarea {
+  height: 350px;
+  resize: none;
+  padding: 16px;
+  border: 1px solid #A8A8A8;
+  border-radius: 4px;
+  background: #F5F5F5;
+  font-size: 16px;
+  font-family: 'Argue', sans-serif; 
+}
+
+
+.form-card textarea::placeholder {
+  font-family: 'Oxygen', sans-serif;
+  font-size: 14px;
+  color: #555;
+  opacity: 0.7;
+t-stroke: 1.5px #fff;  
+}
+
+
+.info-block .icon {
+  width: 50px;
+  height: 50px;
+  background: #876449;       
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.info-block .icon i {
+  color: #876449;              
+  -webkit-text-stroke: 1.5px #fff; 
+}
+
+.form-card form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form-card textarea {
+  flex-grow: 1;
+  min-height: 300px !important; 
+  height: 270px !important;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #A8A8A8;
+  border-radius: 4px;
+  background: #F5F5F5;
+  font-size: 14px;
+  font-family: 'Oxygen', sans-serif;
+  resize: none;
+}

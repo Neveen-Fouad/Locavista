@@ -1,0 +1,248 @@
+body {
+  font-family: 'Argue DEMO', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* Course Section */
+.course-section {
+  padding: 50px;
+  position: relative;
+}
+
+.course-details {
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.course-details h1 {
+  font-family: 'Argue DEMO', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 24px;
+  letter-spacing: 1.2px; 
+}
+
+
+.course-details p {
+  font-family: 'Argue DEMO', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.72px;
+}
+
+
+.go-to-courses {
+  background-color: #00573A;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+}
+.go-to-courses {
+  font-family: 'Argue DEMO', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+
+.video-player {
+  margin-top: 50px;
+  position: relative;
+  width: 1015px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.video-frame {
+  box-sizing: border-box;
+  width: 1015px;
+  height: 352px;
+  background: #CCC9C9;
+  border: 1px solid #FFFFFF;
+  border-radius: 10px;
+  position: relative;
+}
+
+.vector {
+  position: absolute;
+  width: 85px;
+  height: 51px;
+  left: calc(50% - 85px/2);
+  top: calc(50% - 51px/2 - 0.5px);
+  background: #EEEEEE;
+}
+
+.player-controllers {
+  position: absolute;
+  height: 140px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background: rgba(102, 102, 102, 0.42);
+  border-radius: 0px 0px 10px 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 1265px;
+  position: absolute;
+  width: 939px;
+  height: 24px;
+  left: 35px;
+  top: 16px;
+}
+
+.titles-episodes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  margin: 0 auto;
+  width: 175px;
+  height: 24px;
+}
+
+.title {
+  width: 175px;
+  height: 24px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.info-text {
+  display: none;
+  width: 92px;
+  height: 19px;
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 19px;
+  color: #BBBBBB;
+}
+
+.time {
+  margin: 0 auto;
+  width: 105px;
+  height: 16px;
+  font-family: 'Oxygen';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 100%;
+  color: #FFFFFF;
+}
+
+.progress-bar {
+  position: absolute;
+  width: 774px;
+  height: 2px;
+  left: 40px;
+  top: 56px;
+}
+
+.progress {
+  position: absolute;
+  width: 592.97px;
+  height: 2px;
+  left: 0px;
+  top: 0px;
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.fulltime {
+  position: absolute;
+  height: 2px;
+  left: 201px;
+  right: 44px;
+  top: 58px;
+  background: #D9D9D9;
+  opacity: 0.4;
+  border-radius: 20px;
+}
+
+/* Controllers container */
+.controllers {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  bottom: 15px;
+  left: 40px;
+  right: 40px;
+  width: auto;
+  height: auto;
+  gap: 20px;
+}
+
+/* Left and right control groups */
+.left-side, .right-side {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Control buttons (for Font Awesome icons) */
+.control-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.control-btn:hover {
+  color: #00ff99;
+}
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: white;
+  background: rgba(0,0,0,0.6);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 2;
+}
+
+.play-overlay:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+

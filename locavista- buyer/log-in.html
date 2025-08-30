@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    :root {
+      --bg:#d2d7d2;
+      --page:#ffffff;
+      --text:#0f172a;
+      --muted:#6b7280;
+      --primary:#1f6c2c;
+      --primary-600:#155e21;
+      --ring:#cbd5e1;
+      --accent:#e5e7eb;
+      --shadow:0 10px 30px rgba(2,8,23,.12);
+    }
+
+    body {
+      margin:0;
+      font-family:sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+    }
+
+    .card {
+      background:var(--page);
+      box-shadow:var(--shadow);
+      border-radius:12px;
+      display:flex;
+      overflow:hidden;
+      max-width:900px;
+      width:100%;
+    }
+
+    .left, .right {
+      flex:1;
+    }
+
+    .left img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .right{
+      flex:1;
+      padding:40px;
+    }
+
+    .right h1{
+      font-size:28px;
+      margin-bottom:10px;
+      text-align:left;
+    }
+
+    .right p{
+      color:var(--muted);
+      margin-bottom:20px;
+      font-size:14px;
+      text-align:left;
+    }
+
+    form {
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    label {
+      font-size:12px;
+      color:#111827;
+      margin-bottom:4px;
+      display:block;
+      text-align:left;
+    }
+
+    input[type="email"], input[type="password"] {
+      width:100%;
+      height:38px;
+      border:1px solid var(--ring);
+      border-radius:6px;
+      padding:0 10px;
+      font-size:13px;
+      outline:none;
+    }
+
+    input:focus {
+      border-color:#94a3b8;
+      box-shadow:0 0 0 3px rgba(148,163,184,.25);
+    }
+
+    .checkbox {
+      display:flex;
+      align-items:center;
+      gap:6px;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .checkbox label {
+      margin:0;
+    }
+
+    .btn {
+      height:38px;
+      border-radius:8px;
+      border:none;
+      cursor:pointer;
+      font-weight:600;
+    }
+
+    .btn-primary {
+      background:var(--primary);
+      color:#fff;
+    }
+    .btn-primary:hover {
+      background:var(--primary-600);
+    }
+
+    .btn-outline {
+      background:#fff;
+      border:1px solid var(--accent);
+    }
+
+    .providers {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      margin-top:10px;
+    }
+
+    .extra-links {
+      font-size:13px;
+      margin-top:10px;
+      text-align:right;
+    }
+
+    .signup {
+      margin-top:14px;
+      font-size:13px;
+      text-align:center;
+    }
+
+    .signup a {
+      color:blue;
+      text-decoration:none;
+      font-weight:600;
+    }
+
+     .or{
+      display:flex; align-items:center; gap:10px; margin:14px 0
+    }
+    .or::before,.or::after{content:""; height:1px; background:var(--accent); flex:1}
+    .or span{
+      font-size:12px; color:var(--muted)
+    }
+
+    .oauth {
+      display:flex; gap:10px
+    }
+    .oauth .btn{
+      height:36px; font-weight:500; background:#fff; border:1px solid var(--ring)
+    }
+
+    .footer{
+      margin-top:14px; font-size:12px; color:var(--muted)
+    }
+    .footer a{
+      color:#2563eb; text-decoration:none
+    }
+    .oauth , .footer{
+        margin-left: 50px;
+    }
+    .footer{
+        margin-left: 120px;
+    }
+    @media(max-width:768px){
+      .card {flex-direction:column;}
+      .left, .right {padding:20px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- الصورة شمال -->
+    <div class="left">
+      <img src="img/bg.jpg" alt="hero">
+    </div>
+
+    <!-- الفورم يمين -->
+    <div class="right">
+      <h1>Welcome back!</h1>
+      <p>Enter your Credentials to access your account</p><br><BR>
+      <form>
+        <div>
+          <label>Email address</label>
+          <input type="email" placeholder="Enter your Email">
+        </div>
+        <div>
+  
+          <label>Password</label>
+          <input type="password" placeholder="Enter your Password">
+        </div>
+
+
+        <div class="checkbox">
+          <input id="remember" type="checkbox" />
+          <label for="remember">Remember for 30 days</label>
+        </div>
+
+       <button type="button" class="btn btn-primary">Login</button>
+<bR><BR>
+
+            <div class="or"><span>or</span></div>
+
+            <div class="oauth">
+              <button type="button" class="btn" aria-label="Sign in with Google">
+                <!-- Simple G icon -->
+                <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path d="M44.5 20H24v8.5h11.8C34.8 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.2 0 6.2 1.2 8.5 3.1l6-6C34.9 4.2 29.7 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11.3 0 21-8.2 21-22 0-1.3-.2-2.7-.5-4z" fill="#FFC107"/><path d="M6.3 14.7l7 5.1C14.7 16.7 18.9 13 24 13c3.2 0 6.2 1.2 8.5 3.1l6-6C34.9 4.2 29.7 2 24 2 15.5 2 8.1 6.9 4.3 14l2 0.7z" fill="#FF3D00"/><path d="M24 46c6 0 11.1-2 14.8-5.4l-6.8-5.5C29.6 36.7 27 37.6 24 37.6c-6.1 0-11-4.1-12.8-9.6l-6.9 5.3C7.9 41 15.3 46 24 46z" fill="#4CAF50"/><path d="M44.5 20H24v8.5h11.8c-1 3.1-3.3 5.7-6.5 7.1l6.8 5.5C39.1 43.5 46 38.3 46 24c0-1.3-.2-2.7-.5-4z" fill="#1976D2"/></svg>
+                <span style="margin-left:8px">Sign in with Google</span>
+              </button>
+              <button type="button" class="btn" aria-label="Sign in with Apple">
+                <!-- Apple icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2c.1 1-.3 2-.9 2.7-.6.7-1.7 1.2-2.7 1.1-.1-1 .3-2 .9-2.7C14.4 2.4 15.5 2 16.5 2zM20 17.4c-.4.9-.9 1.8-1.6 2.6-.8 1-1.7 2-3 2-1.2 0-1.6-.6-3-.6s-1.8.6-3 .6c-1.3 0-2.2-1-3-2-.9-1.2-1.6-2.8-1.9-4.4-.4-2 .1-4.1 1.4-5.6.9-1 2.2-1.6 3.5-1.7 1.3 0 2.4.7 3 .7s2-.9 3.4-.8c.6 0 2.4.2 3.5 1.9-3.1 1.7-2.6 6.2.7 7.3z"/></svg>
+                <span style="margin-left:8px">Sign in with Apple</span>
+              </button>
+            </div>
+          <p class="footer">Don't have an account? <a href="sign-up buyer.html">Sign up</a></p>
+
+      </form>
+    </div>
+  </div>
+  
+  <script>
+    const loginForm = document.getElementById("loginForm");
+
+    loginForm.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      
+      const formData = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      };
+
+      try {
+        const response = await fetch('http://localhost:3556/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        
+        if (response.ok) {
+          alert('✅ Login successful!');
+          console.log('Token:', result.token);
+          // Save token to localStorage
+          localStorage.setItem('token', result.token);
+          // Redirect to another page
+          window.location.href = 'landing.html';
+        } else {
+          alert('❌ Error: ' + result.message);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('Network error. Please check if server is running.');
+      }
+    });
+  </script>
+</body>
+</html>

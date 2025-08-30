@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="style/sign-up buyer.css">
+  
+</head>
+<body>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Get Started Now</h2>
+      <p>Set your profile picture</p>
+      
+      <form id="signupForm" autocomplete="off">
+        <!-- Profile Picture Upload -->
+        <label for="fileInput">
+          <div class="profile-pic" id="profilePreview">+</div>
+        </label>
+        <input type="file" id="fileInput" name="profilePic" accept="image/*" style="display:none;">
+
+        <label for="name">Name </label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="email">Email </label>
+        <input type="email" id="email" name="email" placeholder="Enter your E-mail" required>
+
+        <label for="password">Password </label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="new-password">
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter your password" required autocomplete="new-password">
+
+        <label>
+          <input type="checkbox" id="terms" required> I agree to the terms & policy
+        </label>
+        <button type="submit" class="btn" id="submitBtn">Signup</button>
+      </form>
+
+      <div class="or">or</div>
+
+      <div class="social">
+        <!-- Google -->
+        <button type="button">
+          <!-- SVG ICON -->
+          Sign in with Google
+        </button>
+        <!-- Apple -->
+        <button type="button">
+          <!-- SVG ICON -->
+          Sign in with Apple
+        </button>
+      </div>
+
+      <div class="login-link">
+        Have an account? <a href="log-in.html">Sign In</a>
+      </div>
+    </div>
+
+    <div class="image-box"></div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const profilePreview = document.getElementById("profilePreview");
+
+    profilePreview.addEventListener("click", function() {
+      fileInput.click();
+    });
+
+    fileInput.addEventListener("change", function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          profilePreview.innerHTML = `<img src="${e.target.result}" alt="Profile Picture" style="width:100px; height:100px; object-fit:cover; border-radius:50%;">`;
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    document.getElementById('signupForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.disabled = true;
+
+      // Collect form data
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+
+      // Simple password match check
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        submitBtn.disabled = false;
+        return;
+      }
+
+      // Prepare payload
+      const payload = {
+        name,
+        email,
+        password
+      };
+
+      try {
+        const response = await fetch('http://localhost:3556/api/auth/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert('Signup successful!');
+          // Optionally redirect or clear form
+           window.location.href = 'log-in.html';
+        } else {
+          alert(result.message || 'Signup failed!');
+        }
+      } catch (error) {
+        alert('Error connecting to server.');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

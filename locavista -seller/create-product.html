@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Product</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style/all.min.css">
+  <link rel="stylesheet" href="./style/nav.css">
+  <link rel="stylesheet" href="style/nav-seller.css">
+  <link rel="stylesheet" href="style/footer.css">
+  <style>
+    body {
+      font-family: "Arial", sans-serif;
+      background: #fdfbf6;
+      color: #333;
+    }
+
+    .container {
+      width: 95%;
+      margin: auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+  
+
+    .top-section {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+    .top{
+        display: flex;
+        justify-content: space-between;
+    }
+    .creat-btn{
+        width: 150px;
+        height: 40px;
+        margin-top: 15px;
+        border-radius: 8px;
+        border-style: none;
+        background-color: #006b3c;
+        color: #f1f1f1;
+    }
+    .creat-btn:hover{
+        background-color: #006b3dea;
+    }
+    .thumbs {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .thumb, .main-image {
+      position: relative;
+      background: #f1f1f1;
+      border: 1px dashed #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #666;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    .thumb {
+      width: 90px;
+      height: 90px;
+      cursor: pointer;
+    }
+
+    .main-image {
+      width: 400px;
+      height: 400px;
+      cursor: pointer;
+    }
+
+    .thumb img, .main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .icon {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 26px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+     .icon.edit { color: #006b3c; right: 40px; }
+    .icon.delete { color: #d11a2a; } 
+    
+    .icon.edit { right: 40px; }
+
+    .form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 18px;
+      outline: none;
+      background: #f7f6f6;
+    }
+
+    .sizes {
+      display: flex;
+      gap: 10px;
+    }
+
+    .sizes button {
+      border: 1px solid #ccc;
+      background: #f8f8f8;
+      padding: 6px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .sizes button.active {
+      background: #006b3c;
+      color: white;
+    }
+    .description-section {
+      margin-top: 30px;
+      position: relative;
+    }
+
+    .description-section textarea {
+      width: 100%;
+      min-height: 150px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      resize: none;
+    }
+
+    .description-section .icon {
+      top: 10px;
+      right: 10px;
+    }
+    .description-section .icon.edit {
+      right: 45px;
+    }
+
+    input[type="file"] { display: none; }
+  </style>
+</head>
+<body>
+   <!-- Start Nav -->
+    <nav>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo Image">
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="sellerhome.html">Home</a></li>
+                <li><a href="create-product.html">Create Product </a></li>
+                <li><a href="create-course.html">Create Course</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <div class="search-nav">
+                <input type="search" placeholder="What are you looking for?">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="nav-icons">
+           <ul>
+             <li class="dropdown">
+              <a href="#"><i class="fa-regular fa-user"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa-solid fa-bag-shopping"></i> My Store</a></li>
+                    <li><a href="orders and requests seller.html"><i class="fa-regular fa-square-check"></i> My Orders</a></li>
+                    <li><a href="welcome-page.html" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                </ul>
+             </li>
+           </ul>
+        </div>
+
+        </div>
+    </nav>
+    <!-- End Nav -->
+  <div class="container">
+    <div class="top">
+        <h2>Upload Your Product Images</h2>
+        <button class="creat-btn">Create Product</button>
+    </div>
+    <div class="top-section">
+      <div class="thumbs" id="thumbs">
+        <div class="thumb" data-index="1">
+          <span>+</span>
+          <div class="icon edit"><i class="fas fa-pen"></i></div>
+          <div class="icon delete"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="thumb" data-index="2">
+          <span>+</span>
+          <div class="icon edit"><i class="fas fa-pen"></i></div>
+          <div class="icon delete"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="thumb" data-index="3">
+          <span>+</span>
+          <div class="icon edit"><i class="fas fa-pen"></i></div>
+          <div class="icon delete"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="thumb" data-index="4">
+          <span>+</span>
+          <div class="icon edit"><i class="fas fa-pen"></i></div>
+          <div class="icon delete"><i class="fas fa-times"></i></div>
+        </div>
+      </div>
+      <div class="main-image" id="mainImage">
+        <span>Click to Upload</span>
+        <div class="icon edit"><i class="fas fa-pen"></i></div>
+      <div class="icon delete" id="clearDesc"><i class="fas fa-times"></i></div>
+      </div>
+      <div class="form">
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" placeholder="Write your product name">
+        </div>
+        <div class="form-group">
+          <label>Product Price</label>
+          <input type="number" placeholder="Write your product price">
+        </div>
+        <div class="form-group">
+          <label>Product Category</label>
+          <select>
+            <option>Select your product category</option>
+            <option>Clothes</option>
+            <option>Electronics</option>
+            <option>Accessories</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Product Brief</label>
+          <input type="text" placeholder="Write your product brief">
+        </div>
+        <div class="form-group">
+          <label>Product Colours</label>
+          <input type="text" placeholder="Write your product colours">
+        </div>
+        <div class="form-group">
+          <label>Size:</label>
+          <div class="sizes">
+            <button type="button">XS</button>
+            <button type="button">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+            <button type="button">XL</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="description-section">
+      <label><b>Full Description</b></label>
+      <textarea id="description" placeholder="Write your full description here"></textarea>
+      <div class="icon edit"><i class="fas fa-pen"></i></div>
+      <div class="icon delete" id="clearDesc"><i class="fas fa-times"></i></div>
+    </div>
+  </div>
+
+  <input type="file" id="fileInput" accept="image/*">
+
+      <footer>
+        <div class="footer-container">
+            <!-- Logo + tagline -->
+            <div class="footer-logo">
+                <img src="img/logo-footer.png" alt="LocaVista Logo">
+                <p>The home for authentic Egyptian handmade crafts</p>
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="sellerhome.html">Home</a></li>
+                    <li><a href="contact us.html">Contact us</a></li>
+                    <li><a href="landing.html#questions">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Social -->
+            <div class="social">
+                <h3>Social Media</h3>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Locavista. All rights reserved.
+        </div>
+    </footer>
+
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const mainImage = document.getElementById("mainImage");
+    const thumbs = document.querySelectorAll(".thumb");
+    const clearDesc = document.getElementById("clearDesc");
+    const desc = document.getElementById("description");
+
+    let images = [null, null, null, null, null]; 
+
+    mainImage.addEventListener("click", () => {
+      uploadImage(0);
+    });
+    thumbs.forEach(thumb => {
+      const index = parseInt(thumb.dataset.index);
+
+      thumb.querySelector(".edit").onclick = () => uploadImage(index);
+      thumb.querySelector(".delete").onclick = () => {
+        images[index] = null;
+        render();
+      };
+      thumb.querySelector("span, img")?.addEventListener("click", () => {
+        if (images[index]) swapImage(index);
+      });
+    });
+
+    function uploadImage(index) {
+      fileInput.onchange = e => {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            images[index] = reader.result;
+            if (index === 0) mainImage.innerHTML = `<img src="${reader.result}"><div class="icon edit"><i class="fas fa-pen"></i></div><div class="icon delete"><i class="fas fa-times"></i></div>`;
+            render();
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+      fileInput.click();
+    }
+
+    function render() {
+      if (images[0]) {
+        mainImage.innerHTML = `
+          <img src="${images[0]}" alt="Main">
+          <div class="icon edit"><i class="fas fa-pen"></i></div>
+          <div class="icon delete"><i class="fas fa-times"></i></div>
+        `;
+        mainImage.querySelector(".edit").onclick = () => uploadImage(0);
+        mainImage.querySelector(".delete").onclick = () => {
+          images[0] = null;
+          render();
+        };
+      } else {
+        mainImage.innerHTML = `<span>Click to Upload</span>`;
+      }
+      thumbs.forEach((thumb, i) => {
+        const idx = i + 1;
+        if (images[idx]) {
+          thumb.innerHTML = `
+            <img src="${images[idx]}" alt="thumb">
+            <div class="icon edit"><i class="fas fa-pen"></i></div>
+            <div class="icon delete"><i class="fas fa-times"></i></div>
+          `;
+          thumb.querySelector("img").onclick = () => swapImage(idx);
+          thumb.querySelector(".edit").onclick = () => uploadImage(idx);
+          thumb.querySelector(".delete").onclick = () => { images[idx] = null; render(); };
+        } else {
+          thumb.innerHTML = `
+            <span>+</span>
+            <div class="icon edit"><i class="fas fa-pen"></i></div>
+            <div class="icon delete"><i class="fas fa-times"></i></div>
+          `;
+          thumb.querySelector(".edit").onclick = () => uploadImage(idx);
+          thumb.querySelector(".delete").onclick = () => { images[idx] = null; render(); };
+        }
+      });
+    }
+
+    function swapImage(index) {
+      let temp = images[0];
+      images[0] = images[index];
+      images[index] = temp;
+      render();
+    }
+
+    clearDesc.addEventListener("click", () => {
+      desc.value = "";
+    });
+
+    document.querySelectorAll(".sizes button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("active");
+      });
+    });
+  </script>
+</body>
+</html>

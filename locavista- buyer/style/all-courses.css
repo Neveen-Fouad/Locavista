@@ -1,0 +1,258 @@
+@font-face {
+ font-family: "Argue DEMO";
+ src: url("https://db.onlinewebfonts.com/t/890ec46ef8df898b790db804a3aa38e6.eot");
+ src: url("https://db.onlinewebfonts.com/t/890ec46ef8df898b790db804a3aa38e6.eot?#iefix") format("embedded-opentype"),
+      url("https://db.onlinewebfonts.com/t/890ec46ef8df898b790db804a3aa38e6.woff2") format("woff2"),
+      url("https://db.onlinewebfonts.com/t/890ec46ef8df898b790db804a3aa38e6.woff") format("woff"),
+      url("https://db.onlinewebfonts.com/t/890ec46ef8df898b790db804a3aa38e6.ttf") format("truetype"),
+      url("https://db.onlinewebfonts.com/t/890ec46ef8df898b790db804a3aa38e6.svg#Argue DEMO") format("svg");
+}
+
+
+body {
+  background: #181818;
+  font-family: 'Cormorant Garamond', serif;
+  margin: 0;
+  color: #363636;
+}
+.container {
+  max-width: 1100px;
+  margin: 32px auto;
+  background: #fafaf5;
+  border-radius: 16px;
+  padding: 32px 32px 16px 32px;
+  box-shadow: 0 2px 24px rgba(60,42,22,0.10);
+}
+h1 {
+  font-family: 'Argue DEMO', sans-serif;
+  font-size: 2.1rem;
+  margin-bottom: 24px;
+  font-weight: 400;
+  text-align: left;
+  color: #3D3D3D;
+}
+.search-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+input[type="text"] {
+  flex: 1;
+  padding: 10px 38px 10px 15px;
+  border-radius: 24px;
+  border: 1px solid #d1cec9;
+  font-size: 1.04rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+input[type="text"]:focus {
+  border-color: #c65a1e;
+}
+.search-bar button {
+  background: #666666;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 20px;
+  margin-left: -44px;
+  font-size: 1.12rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.search-bar button:hover {
+  background: orangered;
+}
+.categories {
+  margin: 10px 0 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.category {
+  background: #eee;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: none;
+}
+.category:hover {
+  background: orangered;
+}
+.desc {
+  color:#b6b5b2;
+  font-size: 0.97rem;
+  margin-bottom: 14px;
+}
+.load-more-btn {
+  background:#00573A;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 10px 20px;
+  margin-left: -44px;
+  font-size: 1.12rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.load-more-btn:hover {
+  background: #a24917;
+}
+.wishlist {
+  
+  font-family: "Oxygen", sans-serif;
+  position: absolute;
+  top: 26px;
+  right: 28px;
+  font-size: 1.18rem;
+  color: #c65a1e;
+  background: #fff;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(198,90,30,0.07);
+  border: 1px solid #ece7df;
+  transition: background 0.2s;
+}
+.wishlist.active {
+  background: #ffead1;
+  color: #a24917;
+}
+.course-card {
+  background: #f5f5f5;
+  padding: 18px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+}
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(94, 73, 62, 0.2);
+}
+.course-img-placeholder {
+  width: 100%;
+  height: 120px;
+  background: #d1cec9;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 1.4rem;
+  position: relative;
+}
+.course-meta {
+  font-size: 0.97rem;
+  color: #8c7e68;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.studio-logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.course-title {
+  
+  font-family: "Oxygen", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 4px;
+}
+.course-desc {
+  color: #635464;
+  margin-bottom: 8px;
+  font-size: 0.99rem;
+}
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+.course-price {
+  font-family: "Oxygen", sans-serif;;
+  color: #242426;
+  font-weight: bold;
+  font-size: 1.11rem;
+  letter-spacing: 0.03em;
+}
+.add-btn {
+  background: #fff;
+  border: 1.5px solid#000000 ;
+  border-radius: 50%;
+  color: #000000;
+  width: 28px;
+  height: 28px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.13s, border 0.13s;
+}
+.add-btn:hover {
+  background: #ffead1;
+}
+.course-actions {
+  display: flex;
+  gap: 8px;
+}
+.view-btn, .buy-btn {
+  flex: 1;
+  text-align: center;
+  border: none;
+  padding: 9px 0;
+  border-radius: 4px;
+  font-size: 1.07rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.view-btn {
+  background:#00573A;
+  color: #fff;
+}
+.view-btn:hover {
+  background: rgb(37, 199, 104);
+}
+.buy-btn {
+  background: #00334E;
+  color: #fff;
+}
+.buy-btn:hover {
+  background: blue;
+}
+.courses {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 32px 22px;
+  margin-bottom: 16px;
+}
+.load-more-btn {
+  margin: 24px auto 0 auto;
+  display: block;
+  border-radius: 24px;
+  font-size: 1.09rem;
+  padding: 10px 44px;
+}
+.pagination-desc {
+  text-align: center;
+  color: #857d79;
+  font-size: 0.98rem;
+  margin-bottom: 7px;
+}
+@media (max-width: 800px) {
+  .courses {
+    grid-template-columns: 1fr;
+  }
+}

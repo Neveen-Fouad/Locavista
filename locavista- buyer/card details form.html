@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locavista Checkout</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style/all.min.css">
+    <link rel="stylesheet" href="./style/nav.css">
+    <link rel="stylesheet" href="style/nav buyer.css">
+    <link rel="stylesheet" href="style/footer.css">
+  <style>
+    :root {
+      --brand: #0b704f;     /* main green */
+      --brand-600: #095b40;
+      --brown: #6e4b3a;
+      --beige: #e3d3bf;
+      --bg: #f3f5f1;
+      --card: #ffffff;
+      --tab: #9ea2a2;
+      --muted: #6b7280;
+      --stroke: #e5e7eb;
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: #222;
+    }
+ @font-face {
+  font-family: 'ArgueDemo';
+  src: url('fonts/Arguedemo-w1PrZ.otf') format('opentype');
+}
+/* Start Nav */
+nav{
+    font-family: 'ArgueDemo', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: #E6D6C4;
+    
+}
+
+.logo img{
+    width: 70px;
+    height: 70px;
+    padding-left: 124px;
+    padding-top: 8px;
+}
+
+img {
+  box-sizing: content-box;
+}
+
+nav .nav-menu ul{
+    margin: 0;
+    padding: 0;
+    padding-left: 100px;
+}
+
+nav .nav-menu ul li{
+    list-style: none;
+    display: inline-block;
+    color: #080E0C;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+nav .nav-menu ul li a{
+    color: #080E0C;
+    text-decoration: none;
+    font-size: 16px;
+
+}
+
+nav .nav-icons ul{
+    margin: 0;
+    padding: 0;
+    padding-right: 50px;
+    padding-top: 10px;
+}
+
+nav .nav-icons ul li{
+    display: inline-block;
+    list-style: none;
+    color: #080E0C;
+}
+
+nav .nav-icons ul li a{ 
+    color: #080E0C;
+    padding: 8px;
+}
+
+nav .search-nav input{
+    border-style: none;
+    height: 38px;
+    width: 242px;
+    padding-left: 20px;
+    border-radius: 4px;
+}
+
+nav .search-nav i{
+    position: absolute;
+    right: 201px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #080E0C;
+    font-size: 16px;
+    pointer-events: none;
+}
+
+nav .nav-content{
+    display: flex;
+    gap: 20px;
+}
+
+.search-nav input::placeholder {
+    color: #777;          
+    font-size: 12px;      
+    font-family: 'ArgueDemo', sans-serif;
+}
+/* End Nav */
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .card, .cart-box {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 14px rgba(0,0,0,.06);
+      border: 1px solid var(--stroke);
+      flex: 1;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      background: var(--tab);
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+      overflow: hidden;
+    }
+    .tabs a {
+      padding: 14px 16px;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .body { padding: 26px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--stroke);
+      background: #f4f4f1;
+      font-size: 15px;
+    }
+    input:focus {
+      outline: 3px solid rgba(11,112,79,.14);
+      border-color: var(--brand);
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .checkbox input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--brand);
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 20px;
+      background:var(--brand);
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(11,112,79,.22);
+    }
+    .btn:hover{background:var(--brand-600)}
+
+    /* ---------------- CART ---------------- */
+    .cart-box {
+      padding: 24px;
+    }
+    .cart-box h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--stroke);
+      padding-bottom: 8px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .cart-item:last-child { border-bottom: none; }
+    .cart-item span { font-size: 15px; }
+    .cart-summary {
+      margin-top: 16px;
+      border-top: 2px solid var(--stroke);
+      padding-top: 12px;
+    }
+    .cart-summary div {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 15px;
+    }
+    .cart-summary div.total {
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .popup-content {
+      background: var(--card);
+      padding: 30px;
+      border-radius: var(--radius);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      animation: fadeIn 0.3s ease;
+    }
+    .popup-content h2 {
+      font-family: cursive;
+      font-size: 28px;
+      margin: 14px 0;
+    }
+    .popup-content p {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+    .check-icon {
+      font-size: 38px;
+      color: white;
+      background: var(--brand);
+      border-radius: 50%;
+      padding: 12px;
+      display: inline-block;
+    }
+    .popup-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .popup-buttons button {
+      padding: 10px 20px;
+      border: 1px solid var(--brand);
+      border-radius: 999px;
+      cursor: pointer;
+      background: white;
+      color: var(--brand);
+      font-weight: bold;
+    }
+    .popup-buttons .primary {
+      background: var(--brand);
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from {transform: scale(0.9); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      main { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+ <!-- Start Nav -->
+    <nav>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo Image">
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="buyer-home.html">Home</a></li>
+                <li><a href="products-Page.html">Products</a></li>
+                <li><a href="all courses.html">Courses</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <div class="search-nav">
+                <input type="search" placeholder="What are you looking for?">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="nav-icons">
+                <ul>
+                    <li><a href="wish-list.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li class="dropdown">
+                      <a href="#"><i class="fa-regular fa-user"></i></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="orders and requests buyer.html"> <i class="fa-solid fa-bag-shopping"></i> My Orders</a></li>
+                          <li><a href="my courses page.html"> <i class="fa-solid fa-graduation-cap"></i> My Courses</a></li>
+                          <li><a href="welcome-page.html" class="logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Nav -->
+
+  <main>
+    <!-- Payment Card -->
+    <section class="card">
+      <div class="tabs">
+        <a class="is-active" href="#">Personal</a>
+        <a href="#">Billing</a>
+        <a href="#">Confirmation</a>
+      </div>
+      <div class="body">
+        <form class="grid" action="#" method="post" onsubmit="event.preventDefault(); openPopup();">
+          <div class="full">
+            <label for="name">Name On Card*</label>
+            <input id="name" name="name" type="text" required />
+          </div>
+          <div class="full">
+            <label for="number">Card Number*</label>
+            <input id="number" name="number" type="tel" inputmode="numeric" required />
+          </div>
+          <div>
+            <label for="valid">Valid Through*</label>
+            <input id="valid" name="valid" type="text" required />
+          </div>
+          <div>
+            <label for="cvv">CVV*</label>
+            <input id="cvv" name="cvv" type="tel" inputmode="numeric" required />
+          </div>
+        
+          <div class="full checkbox">
+            <input id="save" type="checkbox" />
+            <label for="save">Save As Default Payment Method</label>
+          </div>
+          <div class="full" style="margin-top:8px">
+            <button type="submit" class="btn">Boost My Product for One Month</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Cart -->
+    <div class="cart-box">
+      <h3>Cart Details</h3>
+      <div class="cart-item"><span>Double Bed & Dressing</span><span>$180</span></div>
+      <div class="cart-item"><span>Double Bed & Dressing</span><span>$120</span></div>
+      <div class="cart-item"><span>Double Bed & Dressing</span><span>$100</span></div>
+      
+      <div class="cart-summary">
+        <div><span>Subtotal</span><span>$400</span></div>
+        <div><span>Shipping</span><span>$100</span></div>
+        <div class="total"><span>Total</span><span>$500</span></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <div class="check-icon">✔</div>
+      <h2>Thank you!</h2>
+      <p>Your item is now active in premium spots across Locavista for the next 30 days. Get ready for more views and sales.</p>
+      <div class="popup-buttons">
+        <button class="primary" onclick="closePopup()">Go to Homepage</button>
+        <button onclick="closePopup()">Check Order Details</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Logo + tagline -->
+            <div class="footer-logo">
+                <img src="img/logo-footer.png" alt="LocaVista Logo">
+                <p>The home for authentic Egyptian handmade crafts</p>
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="buyer-home.html">Home</a></li>
+                    <li><a href="contact us.html">Contact us</a></li>
+                    <li><a href="landing.html#questions">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Social -->
+            <div class="social">
+                <h3>Social Media</h3>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Locavista. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

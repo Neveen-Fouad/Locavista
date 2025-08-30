@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel=" shortcut icon" href="./assets/images/favicon.ico">
+    <link rel="stylesheet" href="./style/all.min.css">
+    <link rel="stylesheet" href="./style/create-course.css">
+    <link rel="stylesheet" href="style/nav-seller.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <title>Course</title>
+</head>
+<body>
+    <!-- Start Nav -->
+    <nav>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo Image">
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="sellerhome.html">Home</a></li>
+                <li><a href="create-product.html">Create Product </a></li>
+                <li><a href="create-course.html">Create Course</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <div class="search-nav">
+                <input type="search" placeholder="What are you looking for?">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="nav-icons">
+           <ul>
+             <li class="dropdown">
+              <a href="#"><i class="fa-regular fa-user"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><i class="fa-solid fa-bag-shopping"></i> My Store</a></li>
+                    <li><a href="orders and requests seller.html"><i class="fa-regular fa-square-check"></i> My Orders</a></li>
+                    <li><a href="welcome-page.html" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                </ul>
+             </li>
+           </ul>
+        </div>
+
+        </div>
+    </nav>
+    <!-- End Nav -->
+    <!-- Star Create Course -->
+    <section class="create-course">
+        <div class="container">
+            <div class="course-title">
+                <h1>Create a New Course</h1>
+                <button type="submit" form="courseForm">Create Course</button>
+            </div>
+        </div>
+    </section>
+    
+    <div class="course-form-title">
+            <div class="container">
+            <h2>Course Cover image</h2>
+            <h2>Course Information</h2>
+        </div>
+    </div>
+
+    <!-- End Create Course -->
+
+
+<div class="course-cover">
+    <!-- Course Cover Section -->
+    <div class="course-cover-image">
+        <label class="cover-box" for="fileInput">
+            <img id="previewImage" src="" alt="Course Cover Preview" style="display: none; max-width: 100%; border-radius: 8px;">
+            <span class="edit-icon">
+                <i class="fa-solid fa-pen"></i>
+            </span>
+        </label>
+        <input type="file" id="fileInput" name="courseCover" accept="image/*" style="display:none;">
+    </div>
+
+    <!-- Course Information -->
+    <div class="course-info">
+        <div class="course-content">
+            <p>Course name</p>
+            <input type="text" name="courseName" placeholder="Course Name" required>
+        </div>
+
+        <div class="course-content">
+            <p>Course price</p>
+            <input type="text" name="coursePrice" placeholder="Course Price" required>
+        </div>
+
+        <div class="course-content">
+            <p>Course category</p>
+            <select name="courseCategory" required>
+                <option value="">Select your course category</option>
+                <option value="web">Web Development</option>
+                <option value="design">Design</option>
+            </select>
+        </div>
+        
+        <div class="course-content">
+            <p>Course Brief</p>
+            <textarea name="courseBrief" placeholder="Course Brief" rows="1" cols="1" required ></textarea>
+        </div>
+        </div>
+</div>
+
+<div class="course-video">
+    <div class="container">
+        <h2>Course Content</h2>
+        <div class="course-video-card">
+            <label class="cover-box" for="fileInput">
+            <img id="previewImage" src="" alt="Course Cover Preview" style="display: none; max-width: 100%; border-radius: 8px;">
+            <div class="video-icon">
+                <i class="fa-solid fa-video"></i>
+            </div>
+            <span class="edit-icon">
+                <i class="fa-solid fa-pen"></i>
+            </span>
+        </label>
+        <input type="file" id="fileInput" name="courseCover" accept="image/*" style="display:none;">
+        </div>
+    </div>
+</div>
+
+<div class="course-description">
+    <div class="container">
+        <br><br>
+        <h2>Full Description</h2>
+
+        <div class="course-description-card" id="courseDescCard">
+            <span class="close-icon" onclick="closeDescription()">✕</span>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+            <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Logo + tagline -->
+            <div class="footer-logo">
+                <img src="img/logo-footer.png" alt="LocaVista Logo">
+                <p>The home for authentic Egyptian handmade crafts</p>
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="sellerhome.html">Home</a></li>
+                    <li><a href="contact us.html">Contact us</a></li>
+                    <li><a href="landing.html#questions">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Social -->
+            <div class="social">
+                <h3>Social Media</h3>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Locavista. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="./js/course.js"></script>
+</body>
+</html>

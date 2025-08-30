@@ -1,0 +1,182 @@
+
+@font-face {
+  font-family: 'Argue';
+  src: url('../fonts/Argue-DEMO.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+body {
+  font-family: 'Argue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #c5c9c6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Argue", sans-serif;
+}
+
+body {
+  background: #c5c9c6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: #fff;
+  width: 900px;
+  max-width: 95%;
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-box {
+  flex: 1;
+  padding: 40px;
+}
+
+.form-box h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.form-box p {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 90px;
+  height: 90px;
+  border: 2px dashed #4caf50;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #888;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.profile-pic:hover {
+  border-color: #2e6d2e;
+  color: #2e6d2e;
+}
+
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: #00573A;
+}
+
+form input[type="text"]::placeholder,
+form input[type="email"]::placeholder,
+form input[type="password"]::placeholder {
+  color: #00573A;
+  opacity: 0.7;
+}
+
+form label {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #2e6d2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 15px 0;
+}
+
+.btn:hover {
+  background: #245824;
+}
+
+.or {
+  text-align: center;
+  margin: 10px 0;
+  color: #666;
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.social button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.social img {
+  width: 18px;
+  height: 18px;
+}
+
+.login-link {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.login-link a {
+  color: #2e6d2e;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.image-box {
+  flex: 1;
+  min-height: 400px;
+  background: url("../img/bg.jpg") no-repeat center center/cover;
+}

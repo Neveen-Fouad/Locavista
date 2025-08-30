@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style/cart.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style/all.min.css">
+  <link rel="stylesheet" href="./style/nav.css">
+  <link rel="stylesheet" href="style/nav buyer.css">
+  <link rel="stylesheet" href="style/footer.css">
+</head>
+<body>
+  
+     <!-- Start Nav -->
+    <nav>
+        <div class="logo">
+            <img src="img/logo.png" alt="Logo Image">
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="buyer-home.html">Home</a></li>
+                <li><a href="products-Page.html">Products</a></li>
+                <li><a href="all courses.html">Courses</a></li>
+                <li><a href="contact us.html">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="nav-content">
+            <div class="search-nav">
+                <input type="search" placeholder="What are you looking for?">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="nav-icons">
+                <ul>
+                    <li><a href="wish-list.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                    <li class="dropdown">
+                      <a href="#"><i class="fa-regular fa-user"></i></a>
+                      <ul class="dropdown-menu">
+                          <li><a href="orders and requests buyer.html"> <i class="fa-solid fa-bag-shopping"></i> My Orders</a></li>
+                          <li><a href="my courses page.html"> <i class="fa-solid fa-graduation-cap"></i> My Courses</a></li>
+                          <li><a href="welcome-page.html" class="logout"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+                      </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Nav -->
+
+
+  <div class="cart-container">
+    <div class="cart-table">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <tr>
+            <td><span class="remove-btn">&times;</span></td>
+            <td>
+              <div class="cart-product">
+                <img>
+                <span>Double Bed & Dressing</span>
+              </div>
+            </td>
+            <td>$180</td>
+            <td>
+              <div class="qty-control">
+                <button class="decrease">−</button>
+                <span class="qty">1</span>
+                <button class="increase">+</button>
+              </div>
+            </td>
+            <td class="item-total">$180</td>
+          </tr>
+          <tr>
+            <td><span class="remove-btn">&times;</span></td>
+            <td>
+              <div class="cart-product">
+                <img>
+                <span>King Bed & Sofa</span>
+              </div>
+            </td>
+            <td>$220</td>
+            <td>
+              <div class="qty-control">
+                <button class="decrease">−</button>
+                <span class="qty">1</span>
+                <button class="increase">+</button>
+              </div>
+            </td>
+            <td class="item-total">$220</td>
+          </tr>
+          <tr>
+            <td><span class="remove-btn">&times;</span></td>
+            <td>
+              <div class="cart-product">
+                <img>
+                <span>Wooden Wardrobe</span>
+              </div>
+            </td>
+            <td>$150</td>
+            <td>
+              <div class="qty-control">
+                <button class="decrease">−</button>
+                <span class="qty">1</span>
+                <button class="increase">+</button>
+              </div>
+            </td>
+            <td class="item-total">$150</td>
+          </tr>
+          <tr>
+            <td><span class="remove-btn">&times;</span></td>
+            <td>
+              <div class="cart-product">
+                <img>
+                <span>Study Desk</span>
+              </div>
+            </td>
+            <td>$100</td>
+            <td>
+              <div class="qty-control">
+                <button class="decrease">−</button>
+                <span class="qty">1</span>
+                <button class="increase">+</button>
+              </div>
+            </td>
+            <td class="item-total">$100</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    
+    <div class="cart-summary">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="2">Cart Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>SUBTOTAL</td>
+            <td id="subtotal">$650</td>
+          </tr>
+          <tr>
+            <td>DISCOUNT</td>
+            <td>---</td>
+          </tr>
+          <tr>
+            <td>TOTAL</td>
+            <td id="total">$650</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button class="checkout-btn">Proceed To Checkout</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="suggested">
+    <h2>You May Also Like</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <i class="fa-regular fa-heart wishlist"></i>
+        <img>
+        <div class="product-info">
+          <p>Double Bed & Side Tables</p>
+          <div class="price-row">
+            <strong>EGP 200.00</strong>
+            <span class="add-btn">+</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="discount-badge">-13%</span>
+        <i class="fa-regular fa-heart wishlist"></i>
+        <img>
+        <div class="product-info">
+          <p>Double Bed & Side Tables</p>
+          <div class="price-row">
+            <span class="old-price">EGP 230.00</span> <strong>EGP 200.00</strong>
+            <span class="add-btn">+</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <span class="discount-badge">-13%</span>
+        <i class="fa-regular fa-heart wishlist"></i>
+        <img>
+        <div class="product-info">
+          <p>Double Bed & Side Tables</p>
+          <div class="price-row">
+            <span class="old-price">EGP 230.00</span> <strong>EGP 200.00</strong>
+            <span class="add-btn">+</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <i class="fa-regular fa-heart wishlist"></i>
+        <img>
+        <div class="product-info">
+          <p>Double Bed & Side Tables</p>
+          <div class="price-row">
+            <strong>EGP 200.00</strong>
+            <span class="add-btn">+</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <footer>
+        <div class="footer-container">
+            <!-- Logo + tagline -->
+            <div class="footer-logo">
+                <img src="img/logo-footer.png" alt="LocaVista Logo">
+                <p>The home for authentic Egyptian handmade crafts</p>
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="buyer-home.html">Home</a></li>
+                    <li><a href="contact us.html">Contact us</a></li>
+                    <li><a href="landing.html#questions">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Legal -->
+            <div class="footer-links">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Social -->
+            <div class="social">
+                <h3>Social Media</h3>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Locavista. All rights reserved.
+        </div>
+    </footer>
+
+  <script src="script/cart.js"></script>
+</body>
+</html>

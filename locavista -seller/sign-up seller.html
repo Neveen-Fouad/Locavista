@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Sign up seller</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#d2d7d2;           /* page background (top/bottom bands) */
+      --page:#ffffff;         /* main card */
+      --text:#0f172a;         /* slate-900 */
+      --muted:#6b7280;        /* gray-500 */
+      --primary:#1f6c2c;      /* green button */
+      --primary-600:#155e21;  
+      --ring:#cbd5e1;         /* input borders */
+      --accent:#e5e7eb;       /* light lines */
+      --shadow:0 10px 30px rgba(2,8,23,.12);
+    }
+    .avatar , form , p {
+        margin-left: 50px;
+        
+    }
+    p{
+         margin-left: 170px;
+    }
+    .avatar{
+         margin-left: 200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text); background:var(--bg);
+    }
+    /* Top app bar */
+    .appbar{
+      height:64px; background:#2f3437; color:#fff; display:flex; align-items:center; gap:12px; padding:0 20px;
+      position:sticky; top:0; z-index:10;
+    }
+    .hamburger{width:22px; height:2px; background:#fff; position:relative}
+    .hamburger::before,.hamburger::after{content:""; position:absolute; left:0; right:0; height:2px; background:#fff}
+    .hamburger::before{top:-7px} .hamburger::after{top:7px}
+    .brand{margin-left:8px; font-weight:600}
+
+    /* Main stage */
+    .stage{display:flex; justify-content:center; padding:48px 16px;}
+    .card{width:clamp(300px, 95vw, 1100px); background:var(--page); border-radius:20px; overflow:hidden; box-shadow:var(--shadow);}
+
+    /* Two-column layout */
+    .grid{display:grid; grid-template-columns: 1.1fr 1fr; min-height:620px}
+    .hp{padding:44px 40px}
+    .right{position:relative}
+    .hero-img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+
+    h1{font-size:26px; margin:0 0 22px}
+    .Paragraph{font-size:14px; color:var(--muted); margin-bottom:18px}
+
+    /* Avatar uploader placeholder */
+    .avatar{display:inline-grid; place-items:center; width:76px; height:76px; border-radius:50%; background:#f3f4f6; border:2px dashed #d1d5db; margin-bottom:20px; position:relative}
+    .avatar span{font-size:26px; color:#9ca3af}
+    .avatar .small{position:absolute; right:-6px; bottom:-6px; width:26px; height:26px; border-radius:50%; background:#e5f3ea; border:1px solid #cfe7d6; display:grid; place-items:center; font-size:14px; color:#166534}
+
+    /* Form */
+    form{max-width:360px}
+    .form{margin-bottom:14px}
+    label{display:block; font-size:12px; color:#111827; margin:0 0 6px}
+    input[type="text"],input[type="email"],input[type="password"]{
+      width:100%; height:36px; border:1px solid var(--ring); border-radius:6px; padding:0 10px; outline:none; font-size:13px; transition:box-shadow .15s,border-color .15s;
+    }
+    input:focus{border-color:#94a3b8; box-shadow:0 0 0 3px rgba(148,163,184,.25)}
+
+    .hint{font-size:10px; color:var(--muted); margin-top:4px}
+
+    .checkbox{display:flex; align-items:center; gap:8px; margin:12px 0 6px}
+    .checkbox input[type="checkbox"]{width:14px; height:14px}
+
+    .btn{display:inline-flex; justify-content:center; align-items:center; width:100%; height:38px; border-radius:8px; border:none; cursor:pointer; font-weight:600}
+    .btn-primary{background:var(--primary); color:#fff}
+    .btn-primary:hover{background:var(--primary-600)}
+
+    .or{display:flex; align-items:center; gap:10px; margin:14px 0}
+    .or::before,.or::after{content:""; height:1px; background:var(--accent); flex:1}
+    .or span{font-size:12px; color:var(--muted)}
+
+    .oauth{display:flex; gap:10px}
+    .oauth .btn{height:36px; font-weight:500; background:#fff; border:1px solid var(--ring)}
+
+    .footer{margin-top:14px; font-size:12px; color:var(--muted)}
+    .footer a{color:#2563eb; text-decoration:none}
+
+    /* Mobile */
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr}
+      .right{height:280px}
+      .left{padding:30px 22px}
+      form{max-width:100%}
+    }
+  </style>
+</head>
+
+
+<body>
+<main class="stage">
+    <section class="card">
+      <div class="grid">
+
+    <div class="hp">
+          <h1>Get Started Now</h1>
+          <p class="Paragraph">Set your profile picture</p>
+
+
+           <div class="avatar" aria-label="Upload avatar">
+            <div class="small">+</div>
+          </div>
+
+                <form>
+            <div class="form">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Enter your name" />
+            </div>
+
+            <div class="form">
+              <label for="job">Job title</label>
+              <input id="job" type="text" placeholder="Enter your Job title" />
+              <div class="hint">*If you're individual seller not a brand</div>
+            </div>
+
+            <div class="form">
+              <label for="email">Email address</label>
+              <input id="email" type="email" placeholder="Enter your Email" />
+            </div>
+
+            <div class="form">
+              <label for="password">Password</label>
+              <input id="password" type="password" placeholder="Enter your password" />
+            </div>
+
+            <div class="form">
+              <label for="confirm">Confirm Password</label>
+              <input id="confirm" type="password" placeholder="Enter your password" />
+            </div>
+
+            <div class="form">
+              <label for="id">Tax ID</label>
+              <input id="id" type="text" placeholder="Enter your tax id" />
+              <div class="hint">*If you're a brand/artist/individual seller</div>
+            </div>
+
+            <div class="checkbox">
+              <input id="agree" type="checkbox" />
+              <label for="agree" style="margin:0">I agree to the terms &amp; policy</label>
+            </div>
+
+            <button type="button" class="btn btn-primary">Sign Up</button>
+
+            <div class="or"><span>or</span></div>
+
+            <div class="oauth">
+              <button type="button" class="btn" aria-label="Sign in with Google">
+                <!-- Simple G icon -->
+                <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path d="M44.5 20H24v8.5h11.8C34.8 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.2 0 6.2 1.2 8.5 3.1l6-6C34.9 4.2 29.7 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11.3 0 21-8.2 21-22 0-1.3-.2-2.7-.5-4z" fill="#FFC107"/><path d="M6.3 14.7l7 5.1C14.7 16.7 18.9 13 24 13c3.2 0 6.2 1.2 8.5 3.1l6-6C34.9 4.2 29.7 2 24 2 15.5 2 8.1 6.9 4.3 14l2 0.7z" fill="#FF3D00"/><path d="M24 46c6 0 11.1-2 14.8-5.4l-6.8-5.5C29.6 36.7 27 37.6 24 37.6c-6.1 0-11-4.1-12.8-9.6l-6.9 5.3C7.9 41 15.3 46 24 46z" fill="#4CAF50"/><path d="M44.5 20H24v8.5h11.8c-1 3.1-3.3 5.7-6.5 7.1l6.8 5.5C39.1 43.5 46 38.3 46 24c0-1.3-.2-2.7-.5-4z" fill="#1976D2"/></svg>
+                <span style="margin-left:8px">Sign in with Google</span>
+              </button>
+              <button type="button" class="btn" aria-label="Sign in with Apple">
+                <!-- Apple icon -->
+                <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2c.1 1-.3 2-.9 2.7-.6.7-1.7 1.2-2.7 1.1-.1-1 .3-2 .9-2.7C14.4 2.4 15.5 2 16.5 2zM20 17.4c-.4.9-.9 1.8-1.6 2.6-.8 1-1.7 2-3 2-1.2 0-1.6-.6-3-.6s-1.8.6-3 .6c-1.3 0-2.2-1-3-2-.9-1.2-1.6-2.8-1.9-4.4-.4-2 .1-4.1 1.4-5.6.9-1 2.2-1.6 3.5-1.7 1.3 0 2.4.7 3 .7s2-.9 3.4-.8c.6 0 2.4.2 3.5 1.9-3.1 1.7-2.6 6.2.7 7.3z"/></svg>
+                <span style="margin-left:8px">Sign in with Apple</span>
+              </button>
+            </div>
+
+            <p class="footer">Have an account? <a href="log-in.html">Sign in</a></p>
+          </form>
+
+              </div>
+
+        <!-- RIGHT: big plant image -->
+        <div class="right" aria-hidden="true">
+          <img class="hero-img" src="img/bg.jpg">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom mobile action preview (optional) -->
+  <div style="height:92px"></div>
+</body>
