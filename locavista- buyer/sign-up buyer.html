@@ -34,8 +34,10 @@
         <input type="password" id="confirm-password" name="confirm-password" placeholder="Enter your password" required autocomplete="new-password">
 
         <label>
-          <input type="checkbox" id="terms" required> I agree to the terms & policy
+         <input type="checkbox" id="terms" name="agreeToTerms" required>
+             I agree to the terms & policy
         </label>
+
         <button type="submit" class="btn" id="submitBtn">Signup</button>
       </form>
 
@@ -62,75 +64,90 @@
     <div class="image-box"></div>
   </div>
 
-  <script>
-    const fileInput = document.getElementById("fileInput");
-    const profilePreview = document.getElementById("profilePreview");
+<script>
+  const fileInput = document.getElementById("fileInput");
+  const profilePreview = document.getElementById("profilePreview");
 
-    profilePreview.addEventListener("click", function() {
-      fileInput.click();
-    });
+  profilePreview.addEventListener("click", function () {
+    fileInput.click();
+  });
 
-    fileInput.addEventListener("change", function() {
-      const file = this.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          profilePreview.innerHTML = `<img src="${e.target.result}" alt="Profile Picture" style="width:100px; height:100px; object-fit:cover; border-radius:50%;">`;
-        }
-        reader.readAsDataURL(file);
-      }
-    });
-
-    document.getElementById('signupForm').addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
-
-      // Collect form data
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirm-password').value;
-
-      // Simple password match check
-      if (password !== confirmPassword) {
-        alert('Passwords do not match!');
-        submitBtn.disabled = false;
-        return;
-      }
-
-      // Prepare payload
-      const payload = {
-        name,
-        email,
-        password
+  fileInput.addEventListener("change", function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        profilePreview.innerHTML = `<img src="${e.target.result}" alt="Profile Picture" style="width:100px; height:100px; object-fit:cover; border-radius:50%;">`;
       };
+      reader.readAsDataURL(file);
+    }
+  });
 
-      try {
-        const response = await fetch('http://localhost:3556/api/auth/register', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
+  document.getElementById("signupForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-        const result = await response.json();
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.disabled = true;
 
-        if (response.ok) {
-          alert('Signup successful!');
-          // Optionally redirect or clear form
-           window.location.href = 'log-in.html';
-        } else {
-          alert(result.message || 'Signup failed!');
-        }
-      } catch (error) {
-        alert('Error connecting to server.');
-      } finally {
-        submitBtn.disabled = false;
+    // Collect form data
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm-password").value;
+    const agreeToTerms = document.getElementById("terms").checked; // make sure you have a checkbox with id="terms"
+
+    // Simple password match check
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      submitBtn.disabled = false;
+      return;
+    }
+
+    // Simple terms check
+    if (!agreeToTerms) {
+      alert("You must agree to the terms & policy!");
+      submitBtn.disabled = false;
+      return;
+    }
+
+    // Prepare payload (send jobTitle & taxId as empty strings)
+    const payload = {
+      name,
+      email,
+      password,
+      confirmPassword,
+      jobTitle: "",
+      taxId: "",
+      agreeToTerms
+    };
+
+    try {
+      const response = await fetch("http://localhost:3556/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("Signup successful!");
+        // Redirect to login page
+        window.location.href = "log-in.html";
+      } else {
+        alert(result.message || "Signup failed!");
       }
-    });
-  </script>
+    } catch (error) {
+      alert("Error connecting to server.");
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
+
+
 </body>
 </html>
